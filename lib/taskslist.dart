@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'todoinput.dart';
+import 'package:intl/intl.dart';
 
 class TaskList extends StatefulWidget {
   final List<Todoinput> tsklist;
@@ -18,12 +19,35 @@ class _TaskListState extends State<TaskList> {
         child: widget.tsklist.isEmpty
             ? const Text(
                 "No Tasks Added Yet",
-                style: TextStyle(fontSize: 1000, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 1000,
+                  fontWeight: FontWeight.bold,
+                ),
               )
             : ListView.builder(
                 itemCount: widget.tsklist.length,
                 itemBuilder: (context, index) {
                   if (index < widget.tsklist.length) {
+                    // if (widget.tsklist[index].date ==
+                    //     DateFormat.yMd().format(DateTime.now())) {
+                    //   return Card(
+                    //     elevation: 8,
+                    //     child: ListTile(
+                    //       leading: IconButton(
+                    //         icon: const Icon(
+                    //             color: Colors.black,
+                    //             Icons.brightness_1_outlined),
+                    //         onPressed: () {
+                    //           widget.deleteTask(widget.tsklist[index].id);
+                    //           setState(() {});
+                    //         },
+                    //       ),
+                    //       title: Text(widget.tsklist[index].title),
+                    //     ),
+                    //   );
+                    // } else {
+                    //   return const Text("No Task choo");
+                    // }
                     return Card(
                       elevation: 8,
                       child: ListTile(
